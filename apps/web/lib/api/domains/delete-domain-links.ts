@@ -4,6 +4,7 @@ import { R2_URL } from "@dub/utils";
 import { waitUntil } from "@vercel/functions";
 import { storage } from "../../storage";
 import { recordLink } from "../../tinybird";
+import { softDeleteManyLinks } from "../links/soft-delete-links";
 import { removeDomainFromVercel } from "./remove-domain-vercel";
 
 /* Delete a domain and all links & images associated with it */
@@ -49,6 +50,9 @@ export async function deleteDomainAndLinks(domain: string) {
   waitUntil(
     (async () => {
       await Promise.allSettled([
+        // soft delete links associated with the domain
+        softDeleteManyLinks(allLinks.map((link) => link.id)),
+
         // delete all links from redis
         redis.del(domain.toLowerCase()),
         // record deletes in tinybird for domain & links

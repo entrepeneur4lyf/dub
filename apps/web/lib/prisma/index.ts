@@ -6,6 +6,7 @@ export const prisma =
   new PrismaClient({
     omit: {
       user: { passwordHash: true },
+      link: { deletedAt: true },
     },
   });
 
