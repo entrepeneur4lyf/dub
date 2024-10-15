@@ -65,6 +65,13 @@ export const getLinkOrThrow = async (params: GetLinkParams) => {
     });
   }
 
+  if (link.deletedAt) {
+    throw new DubApiError({
+      code: "not_found",
+      message: "Link not found.",
+    });
+  }
+
   if (link.projectId !== workspaceId) {
     throw new DubApiError({
       code: "unauthorized",
