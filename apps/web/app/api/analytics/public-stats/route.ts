@@ -40,7 +40,7 @@ export const PUT = withWorkspace(
     });
 
     const response = await prisma.link.update({
-      where: { domain_key: { domain, key } },
+      where: { domain_key: { domain, key }, deletedAt: null },
       data: { publicStats },
     });
 

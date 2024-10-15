@@ -134,6 +134,7 @@ export const updateUsage = async () => {
               id: {
                 in: topFiveLinkIds,
               },
+              deletedAt: null,
             },
             select: {
               id: true,

@@ -82,7 +82,7 @@ export const POST = withWorkspace(
     }
 
     const linksCount = await prisma.link.count({
-      where: { domain, projectId: workspace.id },
+      where: { domain, projectId: workspace.id, deletedAt: null },
     });
 
     if (newWorkspace.linksUsage + linksCount > newWorkspace.linksLimit) {

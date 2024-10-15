@@ -110,6 +110,7 @@ export const PATCH = withWorkspace(
           const allLinks = await prisma.link.findMany({
             where: {
               domain: newDomain,
+              deletedAt: null,
             },
             include: {
               tags: true,

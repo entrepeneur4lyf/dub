@@ -91,6 +91,7 @@ export const handleDomainUpdates = async ({
       },
       where: {
         domain,
+        deletedAt: null,
       },
     });
     if (linksClicks._sum.clicks && linksClicks._sum.clicks > 0) {
