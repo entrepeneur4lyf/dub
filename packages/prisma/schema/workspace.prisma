@@ -12,17 +12,19 @@ model Project {
   stripeConnectId   String?   @unique // for Stripe Integration
   payoutMethodId    String? // for Stripe Connect payouts
 
-  usage        Int @default(0)
-  usageLimit   Int @default(1000)
-  linksUsage   Int @default(0)
-  linksLimit   Int @default(25)
-  salesUsage   Int @default(0)
-  salesLimit   Int @default(0)
-  domainsLimit Int @default(3)
-  tagsLimit    Int @default(5)
-  usersLimit   Int @default(1)
-  aiUsage      Int @default(0)
-  aiLimit      Int @default(10)
+  usage            Int @default(0)
+  usageLimit       Int @default(1000)
+  linksUsage       Int @default(0)
+  linksLimit       Int @default(25)
+  salesUsage       Int @default(0)
+  salesLimit       Int @default(0)
+  conversionsUsage Int @default(0)
+  conversionsLimit Int @default(0)
+  domainsLimit     Int @default(3)
+  tagsLimit        Int @default(5)
+  usersLimit       Int @default(1)
+  aiUsage          Int @default(0)
+  aiLimit          Int @default(10)
 
   referralLinkId  String? @unique
   referredSignups Int     @default(0)

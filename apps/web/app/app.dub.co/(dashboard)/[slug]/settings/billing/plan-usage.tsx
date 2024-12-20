@@ -108,9 +108,9 @@ export default function PlanUsage() {
             )}
           >
             <UsageTabCard
-              id="events"
+              id="clicks"
               icon={CursorRays}
-              title="Events tracked"
+              title="Clicks tracked"
               usage={usage}
               limit={usageLimit}
             />
@@ -198,7 +198,7 @@ function UsageTabCard({
 
   const isActive =
     searchParams.get("tab") === id ||
-    (!searchParams.get("tab") && id === "events");
+    (!searchParams.get("tab") && id === "clicks");
 
   const [usage, limit] =
     unit === "$" && usageProp !== undefined && limitProp !== undefined

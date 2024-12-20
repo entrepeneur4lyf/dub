@@ -6,6 +6,7 @@ const BUSINESS_PLAN_MODIFIER = ({
   clicks = 150000,
   domains = 40,
   users = 15,
+  conversions = 1,
   ids = [],
 }: {
   name: string;
@@ -16,6 +17,7 @@ const BUSINESS_PLAN_MODIFIER = ({
   domains: number;
   users: number;
   tags: number;
+  conversions: number;
   ids: string[];
 }) => ({
   name,
@@ -31,6 +33,7 @@ const BUSINESS_PLAN_MODIFIER = ({
     clicks,
     domains,
     tags: 1000000000,
+    conversions,
     users,
     ai: 1000,
     api: 3000,
@@ -100,6 +103,7 @@ export const PLANS = [
       users: 1,
       ai: 10,
       api: 60,
+      conversions: 0,
     },
     colors: {
       bg: "bg-black",
@@ -166,6 +170,7 @@ export const PLANS = [
       users: 5,
       ai: 1000,
       api: 600,
+      conversions: 0,
     },
     colors: {
       bg: "bg-blue-500",
@@ -230,6 +235,7 @@ export const PLANS = [
     clicks: 150000,
     domains: 40,
     tags: 150,
+    conversions: 1,
     users: 15,
     ids: [
       "price_1LodLoAlJJEpqkPV9rD0rlNL", // old monthly
@@ -249,6 +255,7 @@ export const PLANS = [
     clicks: 400000,
     domains: 100,
     tags: 300,
+    conversions: 1,
     users: 30,
     ids: [
       "price_1OnWu0AlJJEpqkPVWk4144ZG", // monthly (test)
@@ -265,6 +272,7 @@ export const PLANS = [
     clicks: 1000000,
     domains: 250,
     tags: 500,
+    conversions: 1,
     users: 50,
     ids: [
       "price_1OnWvCAlJJEpqkPVLzLHx5QD", // monthly (test)
@@ -281,6 +289,7 @@ export const PLANS = [
     clicks: 2500000,
     domains: 500,
     tags: 1000,
+    conversions: 1,
     users: 100,
     ids: [
       "price_1OnWwLAlJJEpqkPVXtJyPqLk", // monthly (test)
@@ -306,6 +315,7 @@ export const PLANS = [
       users: 500,
       ai: 10000,
       api: 10000,
+      conversions: 1,
     },
     colors: {
       bg: "bg-violet-600",

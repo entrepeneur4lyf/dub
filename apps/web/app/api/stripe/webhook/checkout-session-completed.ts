@@ -67,6 +67,7 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
       aiLimit: plan.limits.ai!,
       tagsLimit: plan.limits.tags!,
       usersLimit: plan.limits.users!,
+      conversionsLimit: plan.limits.conversions!,
     },
     select: {
       users: {
