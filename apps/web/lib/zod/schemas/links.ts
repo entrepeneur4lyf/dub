@@ -8,6 +8,7 @@ import {
 import { booleanQuerySchema, getPaginationQuerySchema } from "./misc";
 import { TagSchema } from "./tags";
 import {
+  deepRemoveDefaults,
   parseDateSchema,
   parseUrlSchema,
   parseUrlSchemaAllowEmpty,
@@ -193,20 +194,19 @@ export const createLinkBodySchema = z.object({
   trackConversion: z
     .boolean()
     .optional()
-    .describe(
-      "Whether to track conversions for the short link. Defaults to `false` if not provided.",
-    ),
+    .default(false)
+    .describe("Whether to track conversions for the short link."),
   archived: z
     .boolean()
     .optional()
-    .describe(
-      "Whether the short link is archived. Defaults to `false` if not provided.",
-    ),
+    .default(false)
+    .describe("Whether the short link is archived."),
   publicStats: z
     .boolean()
     .optional()
+    .default(false)
     .describe(
-      "Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible. Defaults to `false` if not provided.",
+      "Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible.",
     )
     .openapi({ deprecated: true }),
   tagId: z
@@ -351,7 +351,9 @@ export const createLinkBodySchema = z.object({
     ),
 });
 
-export const updateLinkBodySchema = createLinkBodySchema.partial().optional();
+export const updateLinkBodySchema = deepRemoveDefaults(
+  createLinkBodySchema.partial(),
+);
 
 export const bulkCreateLinksBodySchema = z
   .array(createLinkBodySchema)

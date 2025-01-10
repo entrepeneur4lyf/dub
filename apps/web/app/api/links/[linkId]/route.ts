@@ -63,6 +63,8 @@ export const PATCH = withWorkspace(
 
     const body = updateLinkBodySchema.parse(await parseRequestBody(req)) || {};
 
+    console.log("PATCH /api/links/[linkId]", body);
+
     // Add body onto existing link but maintain NewLinkProps form for processLink
     const updatedLink = {
       ...link,
